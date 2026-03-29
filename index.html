@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RSVP — Exploring Our Fears and their Remedies</title>
+<title>RSVP - Exploring Our Fears and their Remedies</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -26,8 +26,6 @@
       radial-gradient(ellipse 60% 80% at 85% 90%, rgba(191,110,42,0.05) 0%, transparent 60%);
   }
   .page { max-width: 660px; margin: 0 auto; padding: 56px 20px 80px; }
-
-  /* HEADER */
   .header { text-align: center; margin-bottom: 44px; animation: fadeUp 0.6s ease both; }
   .guruji-photo {
     width: 150px; height: 150px; border-radius: 50%;
@@ -36,7 +34,7 @@
     box-shadow: 0 4px 24px rgba(191,110,42,0.3);
     margin: 0 auto 20px; display: block;
   }
-  .om-symbol { font-size: 28px; color: var(--saffron); display: block; margin-bottom: 12px; }
+  .om { font-size: 28px; color: var(--saffron); display: block; margin-bottom: 12px; }
   .eyebrow {
     font-weight: 700; font-size: 10px; letter-spacing: 3.5px;
     text-transform: uppercase; color: var(--saffron); margin-bottom: 16px;
@@ -65,8 +63,6 @@
     font-family: 'Playfair Display', serif; font-size: 14px;
     color: var(--deep-brown); line-height: 1.4; text-align: center;
   }
-
-  /* CARD */
   .card {
     background: rgba(255,255,255,0.65); border: 1px solid var(--border);
     border-radius: 3px; padding: 40px 36px;
@@ -78,8 +74,6 @@
     font-weight: 400; color: var(--deep-brown);
     border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 28px;
   }
-
-  /* FORM */
   .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .form-group { display: flex; flex-direction: column; }
   .form-group.full { grid-column: 1 / -1; }
@@ -102,11 +96,10 @@
   }
   select {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%238a7060' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat; background-position: right 13px center; padding-right: 36px; cursor: pointer;
+    background-repeat: no-repeat; background-position: right 13px center;
+    padding-right: 36px; cursor: pointer;
   }
   textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
-
-  /* BUTTON */
   .submit-wrap { margin-top: 32px; text-align: center; }
   .btn-submit {
     background: var(--saffron); color: white; border: none; border-radius: 2px;
@@ -115,11 +108,9 @@
     transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
     box-shadow: 0 2px 12px rgba(191,110,42,0.25);
   }
-  .btn-submit:hover { background: var(--saffron-light); transform: translateY(-1px); box-shadow: 0 4px 18px rgba(191,110,42,0.35); }
+  .btn-submit:hover { background: var(--saffron-light); transform: translateY(-1px); }
   .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
   .free-note { margin-top: 14px; font-size: 12px; color: var(--muted); font-style: italic; }
-
-  /* SUCCESS */
   .success-screen { display: none; text-align: center; padding: 48px 20px; }
   .success-icon { font-size: 44px; margin-bottom: 20px; display: block; }
   .success-screen h2 {
@@ -127,17 +118,13 @@
     color: var(--deep-brown); margin-bottom: 12px;
   }
   .success-screen p { font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 400px; margin: 0 auto 8px; }
-
-  /* FOOTER */
   .footer {
     text-align: center; margin-top: 36px; font-size: 12px;
-    color: var(--muted); line-height: 1.8; animation: fadeUp 0.9s ease 0.2s both;
+    color: var(--muted); line-height: 1.8;
   }
   .footer a { color: var(--saffron); text-decoration: none; }
   .footer a:hover { text-decoration: underline; }
-
   @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-
   @media (max-width: 520px) {
     .form-grid { grid-template-columns: 1fr; }
     .form-group.full, .section-rule { grid-column: 1; }
@@ -150,7 +137,7 @@
 
   <div class="header">
     <img src="Guruji.jpeg" alt="Paramahamsa Prajnanananda" class="guruji-photo">
-    <span class="om-symbol">ॐ</span>
+    <span class="om">&#2384;</span>
     <div class="eyebrow">Temple of Peace &middot; Lakewood, CO</div>
     <h1>Exploring Our Fears<br><em>and their Remedies</em></h1>
     <div class="subtitle">A talk by Paramahamsa Prajnanananda</div>
@@ -173,7 +160,6 @@
 
   <div class="card" id="formCard">
     <div class="card-title">Reserve Your Seat</div>
-
     <form id="rsvpForm" novalidate>
       <div class="form-grid">
 
@@ -181,20 +167,17 @@
           <label for="firstName">First Name <span class="req">*</span></label>
           <input type="text" id="firstName" placeholder="Arjun" required>
         </div>
-
         <div class="form-group">
           <label for="lastName">Last Name <span class="req">*</span></label>
           <input type="text" id="lastName" placeholder="Sharma" required>
         </div>
-
         <div class="form-group">
           <label for="email">Email Address <span class="req">*</span></label>
-          <input type="email" id="email" placeholder="you@example.com" required>
+          <input type="text" id="email" placeholder="you@example.com" required>
         </div>
-
         <div class="form-group">
           <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" placeholder="(303) 000-0000">
+          <input type="text" id="phone" placeholder="(303) 000-0000">
         </div>
 
         <div class="section-rule"></div>
@@ -211,7 +194,6 @@
             <option value="6+">6 or more</option>
           </select>
         </div>
-
         <div class="form-group">
           <label for="dinner">Vegetarian Dinner</label>
           <select id="dinner">
@@ -220,12 +202,10 @@
             <option value="Maybe">Not sure yet</option>
           </select>
         </div>
-
         <div class="form-group full">
           <label for="dietary">Dietary Restrictions / Allergies</label>
           <input type="text" id="dietary" placeholder="e.g. gluten-free, nut allergy (leave blank if none)">
         </div>
-
         <div class="form-group full">
           <label for="source">How did you hear about this event?</label>
           <select id="source">
@@ -238,14 +218,12 @@
             <option value="Other">Other</option>
           </select>
         </div>
-
         <div class="form-group full">
           <label for="message">Questions or Message (optional)</label>
           <textarea id="message" placeholder="Anything you would like us to know..."></textarea>
         </div>
 
       </div>
-
       <div class="submit-wrap">
         <button type="submit" class="btn-submit">Confirm RSVP</button>
         <div class="free-note">&#10022; Free to attend &nbsp;&middot;&nbsp; Vegetarian dinner provided</div>
@@ -256,15 +234,14 @@
       <span class="success-icon">&#128591;</span>
       <h2>Namaste! You are registered.</h2>
       <p>Thank you for your RSVP. We look forward to welcoming you on <strong>Saturday, May 2nd</strong> at Lloyd G. Clements Community Center.</p>
-      <p style="margin-top:16px; font-size:13px;">Questions? Contact <a href="mailto:templeofpeace@kriya.org">templeofpeace@kriya.org</a> or call (303) 923-8895.</p>
+      <p style="margin-top:16px; font-size:13px;">Questions? Call (303) 923-8895 or visit kriya.org</p>
     </div>
   </div>
 
   <div class="footer">
     Organized by <strong>Temple of Peace</strong><br>
     5925 W. 1st Avenue, Lakewood, CO 80226<br>
-    <a href="tel:3039238895">(303) 923-8895</a> &nbsp;&middot;&nbsp;
-    <a href="mailto:templeofpeace@kriya.org">templeofpeace@kriya.org</a> &nbsp;&middot;&nbsp;
+    (303) 923-8895 &nbsp;&middot;&nbsp;
     <a href="https://kriya.org" target="_blank">kriya.org</a>
   </div>
 
@@ -276,11 +253,10 @@
   document.getElementById('rsvpForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    // Validate required fields
-    var required = ['firstName', 'lastName', 'email', 'guests'];
+    var fields = ['firstName', 'lastName', 'email', 'guests'];
     var valid = true;
 
-    required.forEach(function(id) {
+    fields.forEach(function(id) {
       var el = document.getElementById(id);
       if (!el.value.trim()) {
         el.style.borderColor = '#c0392b';
@@ -293,20 +269,13 @@
       }
     });
 
-    var emailEl = document.getElementById('email');
-    if (emailEl.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)) {
-      emailEl.style.borderColor = '#c0392b';
-      emailEl.style.boxShadow = '0 0 0 3px rgba(192,57,43,0.12)';
-      valid = false;
-    }
-
     if (!valid) return;
 
     var btn = document.querySelector('.btn-submit');
     btn.textContent = 'Sending...';
     btn.disabled = true;
 
-    var payload = {
+    var payload = JSON.stringify({
       name:    document.getElementById('firstName').value.trim() + ' ' + document.getElementById('lastName').value.trim(),
       email:   document.getElementById('email').value.trim(),
       phone:   document.getElementById('phone').value.trim() || '-',
@@ -315,25 +284,18 @@
       dietary: document.getElementById('dietary').value.trim() || '-',
       source:  document.getElementById('source').value || '-',
       message: document.getElementById('message').value.trim() || '-'
-    };
+    });
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', SHEET_URL, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
-
-    xhr.onload = function() {
-      document.getElementById('rsvpForm').style.display = 'none';
-      document.getElementById('successScreen').style.display = 'block';
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        document.getElementById('rsvpForm').style.display = 'none';
+        document.getElementById('successScreen').style.display = 'block';
+      }
     };
-
-    xhr.onerror = function() {
-      // Google Apps Script with no-cors still saves data even if we get an error response
-      // Show success anyway as the data was sent
-      document.getElementById('rsvpForm').style.display = 'none';
-      document.getElementById('successScreen').style.display = 'block';
-    };
-
-    xhr.send(JSON.stringify(payload));
+    xhr.send(payload);
   });
 </script>
 </body>
