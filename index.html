@@ -18,6 +18,7 @@
   .page { max-width: 660px; margin: 0 auto; padding: 56px 20px 80px; }
   .header { text-align: center; margin-bottom: 44px; animation: fadeUp 0.6s ease both; }
   .om-symbol { font-size: 28px; color: var(--saffron); display: block; margin-bottom: 14px; }
+  .guruji-photo { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; object-position: top; border: 3px solid var(--saffron); box-shadow: 0 4px 24px rgba(191,110,42,0.25); margin: 0 auto 20px; display: block; animation: fadeUp 0.5s ease both; }
   .eyebrow { font-weight: 700; font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--saffron); margin-bottom: 18px; }
   h1 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(30px, 5.5vw, 46px); line-height: 1.15; color: var(--deep-brown); margin-bottom: 10px; }
   h1 em { font-style: italic; font-weight: 400; color: var(--saffron); }
@@ -58,6 +59,7 @@
 <div class="page">
 
   <div class="header">
+    <img src="https://raw.githubusercontent.com/denversoftwareengineer-wq/rsvp/main/Guruji.jpeg" alt="Paramahamsa Prajnanananda" class="guruji-photo">
     <span class="om-symbol">ॐ</span>
     <div class="eyebrow">Temple of Peace · Lakewood, CO</div>
     <h1>Exploring Our Fears<br><em>and their Remedies</em></h1>
@@ -150,7 +152,7 @@
       <span class="success-icon">🙏</span>
       <h2>Namaste! You're registered.</h2>
       <p>Thank you for your RSVP. We look forward to welcoming you on <strong>Saturday, May 2nd</strong> at Lloyd G. Clements Community Center.</p>
-      <p style="margin-top:16px; font-size:13px;">Questions? Contact <a href="mailto:templeofpeace@kriya.org">templeofpeace@kriya.org</a> or (303) 923-8895.</p>
+      <p style="margin-top:16px; font-size:13px;">Questions? Contact <a href="/cdn-cgi/l/email-protection#2d5948405d4148424b5d484c4e486d465f44544c03425f4a"><span class="__cf_email__" data-cfemail="3e4a5b534e525b51584e5b5f5d5b7e554c57475f10514c59">[email&#160;protected]</span></a> or (303) 923-8895.</p>
     </div>
   </div>
 
@@ -158,12 +160,12 @@
     Organized by <strong>Temple of Peace</strong><br>
     5925 W. 1st Avenue, Lakewood, CO 80226<br>
     <a href="tel:3039238895">(303) 923-8895</a> &nbsp;·&nbsp;
-    <a href="mailto:templeofpeace@kriya.org">templeofpeace@kriya.org</a> &nbsp;·&nbsp;
+    <a href="/cdn-cgi/l/email-protection#354150584559505a534550545650755e475c4c541b5a4752"><span class="__cf_email__" data-cfemail="5c2839312c3039333a2c393d3f391c372e35253d72332e3b">[email&#160;protected]</span></a> &nbsp;·&nbsp;
     <a href="https://kriya.org" target="_blank">kriya.org</a>
   </div>
 
 </div>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyAAwqF5fWUxSyDoJYU0tj9ybmu2CHoG4PwT6lyJJbXym_ILeTHPjG_185f6BDVou73Ww/exec';
 
   document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
@@ -207,17 +209,4 @@
       await fetch(SHEET_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-        mode: 'no-cors'
-      });
-      document.getElementById('rsvpForm').style.display = 'none';
-      document.getElementById('successScreen').style.display = 'block';
-    } catch (err) {
-      btn.textContent = 'Confirm RSVP';
-      btn.disabled = false;
-      alert('Network error. Please try again or email templeofpeace@kriya.org');
-    }
-  });
-</script>
-</body>
-</html>
+        body: JSON.strin
