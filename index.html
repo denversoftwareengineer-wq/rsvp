@@ -3,102 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RSVP - Exploring Our Fears and their Remedies</title>
+<title>RSVP — Exploring Our Fears and their Remedies</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --cream: #f7f3ec;
-    --deep-brown: #2b1a0f;
-    --saffron: #bf6e2a;
-    --saffron-light: #d9924d;
-    --border: #cfc4b2;
-    --text: #3b2a1c;
-    --muted: #8a7060;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--cream);
-    font-family: 'Lato', sans-serif;
-    color: var(--text);
-    min-height: 100vh;
-    background-image:
-      radial-gradient(ellipse 80% 60% at 15% 10%, rgba(191,110,42,0.07) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 80% at 85% 90%, rgba(191,110,42,0.05) 0%, transparent 60%);
-  }
-  .page { max-width: 660px; margin: 0 auto; padding: 56px 20px 80px; }
-  .header { text-align: center; margin-bottom: 44px; animation: fadeUp 0.6s ease both; }
-  .guruji-photo {
-    width: 150px; height: 150px; border-radius: 50%;
-    object-fit: cover; object-position: center top;
-    border: 4px solid var(--saffron);
-    box-shadow: 0 4px 24px rgba(191,110,42,0.3);
-    margin: 0 auto 20px; display: block;
-  }
-  .om { font-size: 28px; color: var(--saffron); display: block; margin-bottom: 12px; }
-  .eyebrow { font-weight: 700; font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--saffron); margin-bottom: 16px; }
-  h1 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(28px, 5vw, 44px); line-height: 1.15; color: var(--deep-brown); margin-bottom: 10px; }
-  h1 em { font-style: italic; font-weight: 400; color: var(--saffron); }
-  .subtitle { font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px; color: var(--muted); margin-bottom: 24px; }
-  .rule { width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--border) 30%, var(--border) 70%, transparent); margin: 20px 0; }
-  .event-details { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px 36px; }
-  .detail-label { font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--saffron); margin-bottom: 4px; }
-  .detail-value { font-family: 'Playfair Display', serif; font-size: 14px; color: var(--deep-brown); line-height: 1.4; text-align: center; }
-  .card { background: rgba(255,255,255,0.65); border: 1px solid var(--border); border-radius: 3px; padding: 40px 36px; box-shadow: 0 2px 24px rgba(43,26,15,0.06); animation: fadeUp 0.75s ease 0.1s both; }
-  .card-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 400; color: var(--deep-brown); border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 28px; }
-  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .form-group { display: flex; flex-direction: column; }
-  .form-group.full { grid-column: 1 / -1; }
-  .section-rule { grid-column: 1 / -1; height: 1px; background: var(--border); margin: 4px 0; }
-  label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
-  label .req { color: var(--saffron); margin-left: 1px; }
-  input, select, textarea {
-    width: 100%; background: rgba(255,255,255,0.9); border: 1px solid var(--border);
-    border-radius: 2px; padding: 11px 13px; font-family: 'Lato', sans-serif;
-    font-size: 14px; font-weight: 300; color: var(--text);
-    transition: border-color 0.2s, box-shadow 0.2s; outline: none;
-    -webkit-appearance: none; appearance: none;
-  }
-  input:focus, select:focus, textarea:focus { border-color: var(--saffron); box-shadow: 0 0 0 3px rgba(191,110,42,0.12); }
-  select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%238a7060' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat; background-position: right 13px center; padding-right: 36px; cursor: pointer;
-  }
-  textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
-  .submit-wrap { margin-top: 32px; text-align: center; }
-  .btn-submit {
-    background: var(--saffron); color: white; border: none; border-radius: 2px;
-    padding: 15px 48px; font-family: 'Lato', sans-serif; font-size: 11px;
-    font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; cursor: pointer;
-    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-    box-shadow: 0 2px 12px rgba(191,110,42,0.25);
-  }
-  .btn-submit:hover { background: var(--saffron-light); transform: translateY(-1px); }
-  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-  .free-note { margin-top: 14px; font-size: 12px; color: var(--muted); font-style: italic; }
-  .success-screen { display: none; text-align: center; padding: 48px 20px; }
-  .success-icon { font-size: 44px; margin-bottom: 20px; display: block; }
-  .success-screen h2 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--deep-brown); margin-bottom: 12px; }
-  .success-screen p { font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 400px; margin: 0 auto 8px; }
-  .footer { text-align: center; margin-top: 36px; font-size: 12px; color: var(--muted); line-height: 1.8; }
-  .footer a { color: var(--saffron); text-decoration: none; }
-  .footer a:hover { text-decoration: underline; }
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-  @media (max-width: 520px) {
-    .form-grid { grid-template-columns: 1fr; }
-    .form-group.full, .section-rule { grid-column: 1; }
-    .card { padding: 28px 20px; }
-  }
+:root {
+  --cream: #f7f3ec; --parchment: #ede8de; --deep-brown: #2b1a0f;
+  --saffron: #bf6e2a; --saffron-light: #d9924d; --border: #cfc4b2;
+  --text: #3b2a1c; --muted: #8a7060;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--cream); font-family: 'Lato', sans-serif; color: var(--text); min-height: 100vh;
+  background-image: radial-gradient(ellipse 80% 60% at 15% 10%, rgba(191,110,42,0.07) 0%, transparent 60%),
+  radial-gradient(ellipse 60% 80% at 85% 90%, rgba(191,110,42,0.05) 0%, transparent 60%); }
+.page { max-width: 660px; margin: 0 auto; padding: 56px 20px 80px; }
+.header { text-align: center; margin-bottom: 44px; animation: fadeUp 0.6s ease both; }
+.om-symbol { font-size: 28px; color: var(--saffron); display: block; margin-bottom: 14px; }
+.guruji-photo { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; object-position: top; border: 3px solid var(--saffron); box-shadow: 0 4px 24px rgba(191,110,42,0.25); margin: 0 auto 20px; display: block; animation: fadeUp 0.5s ease both; }
+.eyebrow { font-weight: 700; font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--saffron); margin-bottom: 18px; }
+h1 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(30px, 5.5vw, 46px); line-height: 1.15; color: var(--deep-brown); margin-bottom: 10px; }
+h1 em { font-style: italic; font-weight: 400; color: var(--saffron); }
+.subtitle { font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px; color: var(--muted); margin-bottom: 28px; }
+.rule { width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--border) 30%, var(--border) 70%, transparent); margin: 24px 0; }
+.event-details { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px 40px; margin-top: 4px; }
+.detail-label { font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--saffron); margin-bottom: 4px; }
+.detail-value { font-family: 'Playfair Display', serif; font-size: 14px; color: var(--deep-brown); line-height: 1.4; }
+.card { background: rgba(255,255,255,0.65); border: 1px solid var(--border); border-radius: 3px; padding: 40px 36px; box-shadow: 0 2px 24px rgba(43,26,15,0.06); animation: fadeUp 0.75s ease 0.1s both; }
+.card-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 400; color: var(--deep-brown); border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 28px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-group { display: flex; flex-direction: column; }
+.form-group.full { grid-column: 1 / -1; }
+label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
+label .req { color: var(--saffron); margin-left: 1px; }
+label .opt { color: var(--muted); font-weight: 300; font-size: 9px; letter-spacing: 1px; margin-left: 4px; text-transform: none; font-style: italic; }
+input, select, textarea { width: 100%; background: rgba(255,255,255,0.9); border: 1px solid var(--border); border-radius: 2px; padding: 11px 13px; font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 300; color: var(--text); transition: border-color 0.2s, box-shadow 0.2s; outline: none; -webkit-appearance: none; appearance: none; }
+input:focus, select:focus, textarea:focus { border-color: var(--saffron); box-shadow: 0 0 0 3px rgba(191,110,42,0.12); }
+select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%238a7060' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 13px center; padding-right: 36px; cursor: pointer; }
+textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+.section-rule { grid-column: 1 / -1; height: 1px; background: var(--border); margin: 4px 0 8px; }
+.optional-note { grid-column: 1 / -1; font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 4px; }
+.submit-wrap { margin-top: 32px; text-align: center; }
+.btn-submit { background: var(--saffron); color: white; border: none; border-radius: 2px; padding: 15px 48px; font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; cursor: pointer; transition: background 0.2s, transform 0.15s, box-shadow 0.2s; box-shadow: 0 2px 12px rgba(191,110,42,0.25); }
+.btn-submit:hover { background: var(--saffron-light); transform: translateY(-1px); box-shadow: 0 4px 18px rgba(191,110,42,0.35); }
+.btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.free-note { margin-top: 14px; font-size: 12px; color: var(--muted); font-style: italic; }
+.success-screen { display: none; text-align: center; padding: 48px 20px; animation: fadeUp 0.5s ease both; }
+.success-icon { font-size: 40px; margin-bottom: 20px; display: block; }
+.success-screen h2 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--deep-brown); margin-bottom: 12px; }
+.success-screen p { font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 400px; margin: 0 auto 8px; }
+.footer { text-align: center; margin-top: 36px; font-size: 12px; color: var(--muted); line-height: 1.8; animation: fadeUp 0.9s ease 0.2s both; }
+.footer a { color: var(--saffron); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 520px) { .form-grid { grid-template-columns: 1fr; } .form-group.full, .section-rule, .optional-note { grid-column: 1; } .card { padding: 28px 20px; } }
 </style>
 </head>
 <body>
 <div class="page">
-
   <div class="header">
-    <img src="Guruji.jpeg" alt="Paramahamsa Prajnanananda" class="guruji-photo">
-    <span class="om">&#2384;</span>
-    <div class="eyebrow">Temple of Peace &middot; Lakewood, CO</div>
+    <img src="https://raw.githubusercontent.com/denversoftwareengineer-wq/rsvp/main/Guruji.jpeg" alt="Paramahamsa Prajnanananda" class="guruji-photo">
+    <span class="om-symbol">ॐ</span>
+    <div class="eyebrow">Temple of Peace · Lakewood, CO</div>
     <h1>Exploring Our Fears<br><em>and their Remedies</em></h1>
-    <div class="subtitle">A talk by Guruji Paramahamsa Prajnanananda</div>
+    <div class="subtitle">A talk by Paramahamsa Prajnanananda</div>
     <div class="rule"></div>
     <div class="event-details">
       <div class="detail-item">
@@ -107,7 +73,7 @@
       </div>
       <div class="detail-item">
         <div class="detail-label">Time</div>
-        <div class="detail-value">4:00 &ndash; 7:00 PM</div>
+        <div class="detail-value">4:00 – 7:00 PM</div>
       </div>
       <div class="detail-item">
         <div class="detail-label">Venue</div>
@@ -120,6 +86,7 @@
     <div class="card-title">Reserve Your Seat</div>
     <form id="rsvpForm" novalidate>
       <div class="form-grid">
+
         <div class="form-group">
           <label for="firstName">First Name <span class="req">*</span></label>
           <input type="text" id="firstName" placeholder="Arjun" required>
@@ -128,19 +95,24 @@
           <label for="lastName">Last Name <span class="req">*</span></label>
           <input type="text" id="lastName" placeholder="Sharma" required>
         </div>
+
         <div class="form-group">
-          <label for="email">Email Address <span class="req">*</span></label>
-          <input type="text" id="email" placeholder="you@example.com" required>
+          <label for="email">Email Address <span class="opt">(optional)</span></label>
+          <input type="email" id="email" placeholder="you@example.com">
         </div>
         <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="text" id="phone" placeholder="(303) 000-0000">
+          <label for="phone">Phone Number <span class="opt">(optional)</span></label>
+          <input type="tel" id="phone" placeholder="(303) 000-0000">
         </div>
+
+        <div class="optional-note">If you provide an email, we'll send you a confirmation. All contact details are kept private.</div>
+
         <div class="section-rule"></div>
-        <div class="form-group">
+
+        <div class="form-group full">
           <label for="guests">Number of People Attending <span class="req">*</span></label>
           <select id="guests" required>
-            <option value="" disabled selected>Select...</option>
+            <option value="" disabled selected>Select…</option>
             <option value="1">Just me (1)</option>
             <option value="2">2 people</option>
             <option value="3">3 people</option>
@@ -149,108 +121,108 @@
             <option value="6+">6 or more</option>
           </select>
         </div>
-        <div class="form-group">
-          <label for="dinner">Vegetarian Dinner</label>
-          <select id="dinner">
-            <option value="Yes">Yes, I will stay for dinner</option>
-            <option value="No">No, just the talk</option>
-            <option value="Maybe">Not sure yet</option>
-          </select>
-        </div>
-        <div class="form-group full">
-          <label for="dietary">Dietary Restrictions / Allergies</label>
-          <input type="text" id="dietary" placeholder="e.g. gluten-free, nut allergy (leave blank if none)">
-        </div>
+
         <div class="form-group full">
           <label for="source">How did you hear about this event?</label>
           <select id="source">
-            <option value="" disabled selected>Select...</option>
+            <option value="" disabled selected>Select…</option>
             <option value="Friend or family">Friend or family</option>
             <option value="Temple of Peace">Temple of Peace</option>
             <option value="Social media">Social media</option>
-            <option value="Flyer or poster">Flyer or poster</option>
+            <option value="Flyer / poster">Flyer / poster</option>
             <option value="kriya.org">kriya.org</option>
             <option value="Other">Other</option>
           </select>
         </div>
+
         <div class="form-group full">
-          <label for="message">Questions or Message (optional)</label>
-          <textarea id="message" placeholder="Anything you would like us to know..."></textarea>
+          <label for="message">Questions or Message <span class="opt">(optional)</span></label>
+          <textarea id="message" placeholder="Anything you'd like us to know…"></textarea>
         </div>
+
       </div>
       <div class="submit-wrap">
         <button type="submit" class="btn-submit">Confirm RSVP</button>
-        <div class="free-note">&#10022; Free to attend &nbsp;&middot;&nbsp; Vegetarian dinner provided</div>
+        <div class="free-note">✦ Free to attend &nbsp;·&nbsp; All are welcome</div>
       </div>
     </form>
 
     <div class="success-screen" id="successScreen">
-      <span class="success-icon">&#128591;</span>
-      <h2>Namaste! You are registered.</h2>
+      <span class="success-icon">🙏</span>
+      <h2>Namaste! You're registered.</h2>
       <p>Thank you for your RSVP. We look forward to welcoming you on <strong>Saturday, May 2nd</strong> at Lloyd G. Clements Community Center.</p>
-      <p style="margin-top:16px;font-size:13px;">Questions? Call (303) 923-8895 or visit kriya.org</p>
+      <p style="margin-top:16px; font-size:13px;">Questions? Contact <a href="mailto:templeofpeace.co@gmail.com">templeofpeace.co@gmail.com</a> or (303) 923-8895.</p>
     </div>
   </div>
 
   <div class="footer">
     Organized by <strong>Temple of Peace</strong><br>
     5925 W. 1st Avenue, Lakewood, CO 80226<br>
-    (303) 923-8895 &nbsp;&middot;&nbsp;
+    <a href="tel:3039238895">(303) 923-8895</a> &nbsp;·&nbsp;
+    <a href="mailto:templeofpeace.co@gmail.com">templeofpeace.co@gmail.com</a> &nbsp;·&nbsp;
     <a href="https://kriya.org" target="_blank">kriya.org</a>
   </div>
-
 </div>
 
 <script>
-var SHEET_URL = 'https://script.google.com/macros/s/AKfycbyAAwqF5fWUxSyDoJYU0tj9ybmu2CHoG4PwT6IyJJbXym_ILeTHPjG_185f6BDVou73Ww/exec';
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyAAwqF5fWUxSyDoJYU0tj9ybmu2CHoG4PwT6IyJJbXym_ILeTHPjG_185f6BDVou73Ww/exec';
 
-document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
   e.preventDefault();
 
-  var fields = ['firstName', 'lastName', 'email', 'guests'];
-  var valid = true;
-  fields.forEach(function(id) {
-    var el = document.getElementById(id);
+  // Only name and guests are required now
+  const required = ['firstName', 'lastName', 'guests'];
+  let valid = true;
+  required.forEach(id => {
+    const el = document.getElementById(id);
     if (!el.value.trim()) {
       el.style.borderColor = '#c0392b';
       el.style.boxShadow = '0 0 0 3px rgba(192,57,43,0.12)';
       valid = false;
-      el.addEventListener('input', function() {
-        el.style.borderColor = '';
-        el.style.boxShadow = '';
-      }, { once: true });
+      el.addEventListener('input', () => { el.style.borderColor = ''; el.style.boxShadow = ''; }, { once: true });
     }
   });
+
+  // Validate email format only if provided
+  const emailEl = document.getElementById('email');
+  if (emailEl.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)) {
+    emailEl.style.borderColor = '#c0392b';
+    emailEl.style.boxShadow = '0 0 0 3px rgba(192,57,43,0.12)';
+    valid = false;
+    emailEl.addEventListener('input', () => { emailEl.style.borderColor = ''; emailEl.style.boxShadow = ''; }, { once: true });
+  }
+
   if (!valid) return;
 
-  var btn = document.querySelector('.btn-submit');
-  btn.textContent = 'Sending...';
+  const btn = document.querySelector('.btn-submit');
+  btn.textContent = 'Sending…';
   btn.disabled = true;
 
-  var data = JSON.stringify({
-    name:    document.getElementById('firstName').value.trim() + ' ' + document.getElementById('lastName').value.trim(),
-    email:   document.getElementById('email').value.trim(),
-    phone:   document.getElementById('phone').value.trim() || '-',
-    guests:  document.getElementById('guests').value,
-    dinner:  document.getElementById('dinner').value,
-    dietary: document.getElementById('dietary').value.trim() || '-',
-    source:  document.getElementById('source').value || '-',
-    message: document.getElementById('message').value.trim() || '-'
-  });
+  const payload = {
+    name: document.getElementById('firstName').value.trim() + ' ' + document.getElementById('lastName').value.trim(),
+    email: document.getElementById('email').value.trim() || '—',
+    phone: document.getElementById('phone').value.trim() || '—',
+    guests: document.getElementById('guests').value,
+    dinner: '—',
+    dietary: '—',
+    source: document.getElementById('source').value || '—',
+    message: document.getElementById('message').value.trim() || '—'
+  };
 
-  // text/plain avoids CORS preflight — this is the correct fix
-  fetch(SHEET_URL, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'text/plain' },
-    body: data
-  }).then(function() {
+  try {
+    await fetch(SHEET_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      mode: 'no-cors'
+    });
     document.getElementById('rsvpForm').style.display = 'none';
     document.getElementById('successScreen').style.display = 'block';
-  }).catch(function() {
-    document.getElementById('rsvpForm').style.display = 'none';
-    document.getElementById('successScreen').style.display = 'block';
-  });
+  } catch (err) {
+    btn.textContent = 'Confirm RSVP';
+    btn.disabled = false;
+    alert('Something went wrong. Please try again or contact us directly.');
+  }
 });
 </script>
 </body>
